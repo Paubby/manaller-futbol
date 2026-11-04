@@ -1,0 +1,17 @@
+<h2>Convocatoria</h2>
+
+<!-- Contador: X / 18 -->
+<p>Jugadores convocados: {{ equipo.numConvocados() }} / {{ equipo.maxConvocados }}</p>
+
+@if (equipo.convocados().length === 0) {
+  <p>Todavía no has convocado a nadie.</p>
+} @else {
+  <ul>
+    @for (jugador of equipo.convocados(); track jugador.codigo) {
+      <li>
+        <strong>{{ jugador.nombre }}</strong> - {{ jugador.posicion }}
+        <button type="button" (click)="retirar(jugador.codigo)">Desconvocar</button>
+      </li>
+    }
+  </ul>
+}

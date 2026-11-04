@@ -1,0 +1,74 @@
+/* Contenedor principal en formato tarjeta */
+.card-jugador {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 24px;
+    background: #e2e2e2;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Título */
+.card-jugador h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Agrupación de cada campo */
+.form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas */
+.form-group label {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+/* Entradas de texto, números y desplegables */
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #f8fafc;
+}
+
+/* Efecto al hacer clic en un input */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Botón de envío */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Efecto hover en el botón */
+.btn-submit:hover {
+    background-color: #2563eb;
+}

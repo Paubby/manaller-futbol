@@ -1,0 +1,79 @@
+<div class="card-jugador">
+  <h2>Añadir Jugador</h2>
+
+  <!-- [formGroup] une el formulario con el FormGroup del TS -->
+  <form [formGroup]="jugadorForm" (ngSubmit)="guardar()" novalidate>
+    <div class="form-group">
+      <label for="codigo">Código:</label>
+      <!-- formControlName debe coincidir con la clave del FormGroup -->
+      <input id="codigo" type="text" formControlName="codigo" placeholder="JUG-0025" />
+      @if (jugadorForm.controls.codigo.touched && jugadorForm.controls.codigo.invalid) {
+        @if (jugadorForm.controls.codigo.hasError('required')) {
+          <p class="error">El código es obligatorio.</p>
+        }
+        @if (jugadorForm.controls.codigo.hasError('pattern')) {
+          <p class="error">Formato: JUG-0000</p>
+        }
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre del jugador" />
+      @if (jugadorForm.controls.nombre.touched && jugadorForm.controls.nombre.invalid) {
+        @if (jugadorForm.controls.nombre.hasError('required')) {
+          <p class="error">El nombre es obligatorio.</p>
+        }
+        @if (jugadorForm.controls.nombre.hasError('minlength')) {
+          <p class="error">Mínimo 3 caracteres.</p>
+        }
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="dorsal">Dorsal:</label>
+      <input id="dorsal" type="number" formControlName="dorsal" placeholder="Ej. 10" />
+      @if (jugadorForm.controls.dorsal.touched && jugadorForm.controls.dorsal.invalid) {
+        <p class="error">El dorsal debe estar entre 1 y 99.</p>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="edad">Edad:</label>
+      <input id="edad" type="number" formControlName="edad" placeholder="Ej. 22" />
+      @if (jugadorForm.controls.edad.touched && jugadorForm.controls.edad.invalid) {
+        <p class="error">La edad debe estar entre 16 y 45.</p>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="posicion">Posición:</label>
+      <select id="posicion" formControlName="posicion">
+        <option value="Portero">Portero</option>
+        <option value="Defensa">Defensa</option>
+        <option value="Centrocampista">Centrocampista</option>
+        <option value="Delantero">Delantero</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="estado">Estado:</label>
+      <select id="estado" formControlName="estado">
+        <option value="Disponible">Disponible</option>
+        <option value="Lesionado">Lesionado</option>
+        <option value="Sancionado">Sancionado</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-submit">
+      Añadir Jugador
+    </button>
+  </form>
+<!-- [disabled]="jugadorForm.invalid" -->
+  @if (aviso()) {
+    <p class="error" role="alert">{{ aviso() }}</p>
+  }
+  @if (exito()) {
+    <p class="ok" role="status">{{ exito() }}</p>
+  }
+</div>

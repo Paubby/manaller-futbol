@@ -1,0 +1,35 @@
+<!-- @if (codigo(); as codigoActiva) {
+  ===== VISTA DE DETALLE =====
+  @if (jugadorSeleccionado(); as jugador) {
+    <article>
+      <h2>{{ jugador.nombre }}</h2>
+      <p>Código: {{ jugador.codigo }}</p>
+      <p>Dorsal: {{ jugador.dorsal }}</p>
+      <p>Edad: {{ jugador.edad }} años</p>
+      <p>Posición: {{ jugador.posicion }}</p>
+      <p>Estado: {{ jugador.estado }}</p>
+    </article>
+  } @else {
+    <p>No existe ningún jugador con el código {{ codigoActiva }}.</p>
+  }
+  <a routerLink="/plantilla">← Volver a la plantilla</a>
+
+} @else {
+  ===== VISTA DE LISTA ===== -->
+  <ul class="lista-jugadores">
+    @for (jugador of equipo.jugadores(); track jugador.codigo) {
+      <li class="jugador-card">
+        <div class="jugador-info">
+            <strong class="jugador-nombre">{{ jugador.nombre }}</strong>
+            <span class="jugador-detalle"><strong>Código:</strong> {{ jugador.codigo }}</span>
+            <span class="jugador-detalle"><strong>Dorsal:</strong> {{ jugador.dorsal }}</span>
+            <span class="jugador-detalle"><strong>Edad:</strong> {{ jugador.edad }} años</span>
+            <span class="jugador-detalle"><strong>Posición:</strong> {{ jugador.posicion }}</span>
+            <span class="jugador-estado estado-{{ jugador.estado.toLowerCase() }}"><strong>Estado:</strong> {{ jugador.estado }}</span>
+                <button (click)="convocar(jugador.codigo)">Convocar</button>
+                <button>Eliminar</button>
+          </div>
+      </li>
+    }
+</ul>
+<!-- } -->
