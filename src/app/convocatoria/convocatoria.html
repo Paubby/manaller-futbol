@@ -1,19 +1,25 @@
-<h2>Convocatoria</h2>
+<section class="convocatoria-container">
+  <h2 class="convocatoria-titulo">Convocatoria</h2>
 
-<p>Jugadores convocados: {{ equipo.numConvocados() }} / {{ equipo.maxConvocados }}</p>
+  <p class="convocatoria-contador">
+    Jugadores convocados: {{ equipo.numConvocados() }} / {{ equipo.maxConvocados }}
+  </p>
 
-@if (equipo.convocados().length === 0) {
-  <p>Todavía no has convocado a nadie.</p>
-} @else {
-  <ul>
-    @for (jugador of equipo.convocados(); track jugador.codigo) {
-      <li>
-        <div>
-          <strong>{{ jugador.nombre }}</strong>
-          <span>({{ jugador.posicion }})</span>
-        </div>
-        <button type="button" (click)="retirar(jugador.codigo)">Desconvocar</button>
-      </li>
-    }
-  </ul>
-}
+  @if (equipo.convocados().length === 0) {
+    <p class="convocatoria-vacio">Todavía no has convocado a nadie.</p>
+  } @else {
+    <ul class="lista-convocados">
+      @for (jugador of equipo.convocados(); track jugador.codigo) {
+        <li class="convocado-card">
+          <div class="convocado-datos">
+            <strong class="convocado-nombre">{{ jugador.nombre }}</strong>
+            <span class="convocado-posicion">({{ jugador.posicion }})</span>
+          </div>
+          <button type="button" class="btn-desconvocar" (click)="retirar(jugador.codigo)">
+            Desconvocar
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</section>
