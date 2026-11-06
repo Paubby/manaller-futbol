@@ -53,3 +53,24 @@
     color: #0f172a;
     margin-top: 4px;
 }
+
+.buscador {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.buscador input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.sin-resultados {
+    text-align: center;
+    color: #64748b;
+    padding: 40px 0;
+}

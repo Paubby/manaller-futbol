@@ -1,0 +1,21 @@
+.not-found {
+    text-align: center;
+    padding: 80px 24px;
+}
+
+.not-found-code {
+    font-size: 6rem;
+    font-weight: 800;
+    color: #0ea5e9;
+    margin: 0;
+    line-height: 1;
+}
+
+.not-found h2 {
+    margin: 8px 0;
+}
+
+.not-found a {
+    color: #2563eb;
+    font-weight: 600;
+}

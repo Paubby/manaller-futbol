@@ -1,0 +1,47 @@
+<div class="kkk-container">
+
+    <!-- Escudo o logotipo provisional -->
+    <div class="shield-placeholder">
+        <img class="club-logo" src="/assets/logoEquipo.png" alt="Escudo del club">
+    </div>
+
+    <h1 class="club-title">Kapha Kicker Klub</h1>
+    <p class="season-subtitle">Temporada 2025/2026</p>
+
+    <!-- Bloques principales superiores -->
+    <div class="main-grid">
+        <div class="card">
+            <h3>Plantilla</h3>
+            <div class="stat-value">{{ totalJugadores() }}</div>
+            <p class="stat-label">jugadores</p>
+        </div>
+
+        <div class="card">
+            <h3>Próximo partido</h3>
+            <div class="match-team">
+                @if (proximoPartido(); as partido) {
+                <div class="match-team">
+                    {{ partido.rival }}
+                </div>
+                <p class="match-date">{{ partido.competicion }} - {{ partido.fecha }}</p>
+                } @else {
+                <div class="match-team">Sin partidos pendientes</div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Fichas de información inferior -->
+    <div class="info-grid">
+        <div class="info-card">
+            <h4>Próximo partido</h4>
+            <p>
+                @if(equipo.proximoPartido()?.condicion === 'Local') {
+                    Local
+                } @else {
+                    visitante
+                }
+            </p>
+        </div>
+    </div>
+</div>

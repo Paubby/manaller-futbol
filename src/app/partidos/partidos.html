@@ -1,0 +1,27 @@
+<section class="partidos-container">
+  <h2 class="partidos-titulo">Partidos</h2>
+
+  <ul class="lista-partidos">
+    @for (partido of equipo.partidos(); track $index) {
+      <li class="partido-card">
+        <strong class="partido-enfrentamiento">
+          @if (partido.condicion === 'Local') {
+            Kapha Kicker Klub vs {{ partido.rival }}
+          } @else {
+            {{ partido.rival }} vs Kapha Kicker Klub
+          }
+        </strong>
+
+        <span class="partido-info">{{ partido.competicion }} - {{ partido.fecha }}</span>
+
+        @if (partido.estado === 'Finalizado') {
+          <span class="partido-estado partido-resultado">
+            Resultado: {{ partido.golesFavor }} - {{ partido.golesContra }}
+          </span>
+        } @else {
+          <span class="partido-estado partido-pendiente">Pendiente</span>
+        }
+      </li>
+    }
+  </ul>
+</section>
