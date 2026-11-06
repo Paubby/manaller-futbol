@@ -23,25 +23,17 @@
                 <div class="match-team">
                     {{ partido.rival }}
                 </div>
-                <p class="match-date">{{ partido.competicion }} - {{ partido.fecha }}</p>
+                <p class="match-date">{{ partido.competicion }} - {{ partido.fecha }} -
+                    @if(equipo.proximoPartido()?.condicion === 'Local') {
+                        Local
+                    } @else {
+                        visitante
+                    }
+                </p>
                 } @else {
                 <div class="match-team">Sin partidos pendientes</div>
                 }
             </div>
-        </div>
-    </div>
-
-    <!-- Fichas de información inferior -->
-    <div class="info-grid">
-        <div class="info-card">
-            <h4>Próximo partido</h4>
-            <p>
-                @if(equipo.proximoPartido()?.condicion === 'Local') {
-                    Local
-                } @else {
-                    visitante
-                }
-            </p>
         </div>
     </div>
 </div>

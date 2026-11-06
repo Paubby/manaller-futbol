@@ -1,11 +1,13 @@
 <!-- Provisional -->
-<header>
-    <a routerLink="/" routerLinkActive="activo">INICIO | </a>
-    <a routerLink="/plantilla" routerLinkActive="activo">PLANTILLA | </a>
-    <a routerLink="/convocatoria" routerLinkActive="activo">CONVOCATORIA | </a>
-    <a routerLink="/partidos" routerLinkActive="activo">PARTIDOS | </a>
-    <a routerLink="/anadir-jugador" routerLinkActive="activo">AÑADIR JUGADOR</a>
-</header>
+ @if (!es404()) {
+    <header>
+        <a routerLink="/" routerLinkActive="activo">INICIO | </a>
+        <a routerLink="/plantilla" routerLinkActive="activo">PLANTILLA | </a>
+        <a routerLink="/convocatoria" routerLinkActive="activo">CONVOCATORIA | </a>
+        <a routerLink="/partidos" routerLinkActive="activo">PARTIDOS | </a>
+        <a routerLink="/anadir-jugador" routerLinkActive="activo">AÑADIR JUGADOR</a>
+    </header>
+}
 
   <main>
     <router-outlet />

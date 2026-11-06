@@ -14,5 +14,5 @@ export const routes: Routes = [
     { path: 'anadir-jugador', component: AnadirJugador },
     { path: 'partidos', component: Partidos},
     { path: 'plantilla/:codigo', component: Plantilla },
-    { path: '**', component: Error404 },
+    { path: '**', component: Error404, data: { es404: true } },
 ];
